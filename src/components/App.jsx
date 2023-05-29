@@ -1,16 +1,13 @@
+//import { Fetchmovies } from './SearchFilm/SearchFilm';
+import { Home } from '../pages/Home';
+import { Movies } from 'pages/Movies';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <div>dfdfdfdf</div>
+      <Home />
+      <Movies />
+    </>
   );
 };
