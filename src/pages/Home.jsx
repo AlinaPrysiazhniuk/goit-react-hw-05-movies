@@ -1,7 +1,27 @@
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { searchTranding } from 'components/SearchMovies/SearchMovies';
+
 export const Home = () => {
+  const [movies, setMovies] = useState([]);
+  const location = useLocation();
+  useEffect(() => {
+    searchTranding().then(setMovies);
+  }, []);
+
   return (
-    <main>
-      <a href="/">Home</a>
-    </main>
+    <>
+      <h1>Trandindg today</h1>
+      <ul>
+        {movies.map(({ id, title, poster }) => (
+          <li key={id}>
+            <a to={`/movies/${id}`} state={{ from: location }}>
+              <img src={poster} alt={title} />
+              <h3>{title}</h3>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
