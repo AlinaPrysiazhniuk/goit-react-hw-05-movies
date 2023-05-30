@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { searchTranding } from 'components/SearchMovies/SearchMovies';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const location = useLocation();
   useEffect(() => {
@@ -25,3 +25,5 @@ export const Home = () => {
     </>
   );
 };
+
+export default Home;
