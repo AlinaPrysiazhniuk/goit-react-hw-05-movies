@@ -1,10 +1,13 @@
 import axios from 'axios';
+import noPhoto from './images/noImages.png';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.params = {
   api_key: '19d2d0f24e837c8f3ad6ea805c1086b1',
   include_adult: false,
 };
+
+const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 export const searchTranding = async () => {
   return axios
@@ -13,7 +16,7 @@ export const searchTranding = async () => {
       results.map(({ id, title, poster_path: poster }) => ({
         id,
         title,
-        poster: poster,
+        poster: IMG_URL + poster,
       }))
     )
     .catch(error => {
@@ -28,7 +31,7 @@ export const searchByName = async name => {
       results.map(({ id, title, poster_path: poster }) => ({
         id,
         title,
-        poster: poster,
+        poster: IMG_URL + poster,
       }))
     )
     .catch(error => {
@@ -52,7 +55,7 @@ export const searchMovieDetails = movieId => {
         },
       }) => ({
         id,
-        poster: poster,
+        poster: IMG_URL + poster,
         title,
         releaseYear: new Date(releaseYear).getFullYear(),
         userScore: Math.round(userScore * 10),
@@ -73,7 +76,7 @@ export const searchMovieCredits = movieId => {
         id,
         name,
         character,
-        photo: photo,
+        photo: photo ? IMG_URL + photo : noPhoto,
       }))
     )
     .catch(error => {
