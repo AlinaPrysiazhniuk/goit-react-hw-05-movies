@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { searchMovieDetails } from 'components/SearchMovies';
 import { Link } from 'react-router-dom';
+import css from './MovieDetails.module.css';
 
 const MovieDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -22,16 +23,16 @@ const MovieDetails = () => {
   };
 
   return (
-    <div>
-      <button type="button" onClick={backToMovies}>
+    <>
+      <button type="button" onClick={backToMovies} className={css.movies_btn}>
         Back to movies
       </button>
       {movie && (
         <div>
-          <div>
-            <img src={poster} alt={title} />
-            <div>
-              <h3>
+          <div className={css.movies_container}>
+            <img src={poster} alt={title} className={css.movies_img} />
+            <div className={css.movies_info}>
+              <h3 className={css.movies_title}>
                 {title} ({releaseyear})
               </h3>
               <p>User Score: {userScore}%</p>
@@ -42,16 +43,24 @@ const MovieDetails = () => {
             </div>
           </div>
 
-          <p>Additional information</p>
+          <p className={css.movies_add}>Additional information</p>
 
-          <div class="info_list">
+          <div className={css.info_list}>
             <li>
-              <Link to={'cast'} state={{ from: location?.state?.from }}>
+              <Link
+                to={'cast'}
+                state={{ from: location?.state?.from }}
+                className={css.movies_link}
+              >
                 Cast
               </Link>
             </li>
             <li>
-              <Link to={'reviews'} state={{ from: location?.state?.from }}>
+              <Link
+                to={'reviews'}
+                state={{ from: location?.state?.from }}
+                className={css.movies_link}
+              >
                 Reviews
               </Link>
             </li>
@@ -59,7 +68,7 @@ const MovieDetails = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
