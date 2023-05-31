@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams, useLocation, Link } from 'react-router-dom';
 import { searchByName } from 'components/SearchMovies';
+import css from './Movies.module.css';
 
 const Movies = () => {
   const [name, setName] = useState('');
@@ -29,19 +30,30 @@ const Movies = () => {
 
   return (
     <>
-      <div class="form-div">
-        <form onSubmit={handleSubmit}>
-          <input type="text" value={name} onChange={onChange} />
-          <button type="submit" search></button>
+      <div className={css.form_div}>
+        <form onSubmit={handleSubmit} className={css.form_search}>
+          <input
+            type="text"
+            value={name}
+            onChange={onChange}
+            className={css.form_input}
+          />
+          <button type="submit" className={css.btn_search}>
+            Search
+          </button>
         </form>
       </div>
       {movies.length > 0 && (
-        <ul>
+        <ul className={css.movie_list}>
           {movies.map(({ id, title, poster }) => (
-            <li key={id}>
-              <Link to={`/movies/${id}`} state={{ from: location }}>
-                <img src={poster} alt={title} />
-                <h3>{title}</h3>
+            <li key={id} className={css.movie_item}>
+              <Link
+                to={`/movies/${id}`}
+                state={{ from: location }}
+                className={css.movie_link}
+              >
+                <img src={poster} alt={title} className={css.movie_img} />
+                <h3 className={css.movie_tittle}>{title}</h3>
               </Link>
             </li>
           ))}
