@@ -1,6 +1,7 @@
 import { searchMovieReviews } from 'components/SearchMovies';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import css from './Reviews.module.css';
 
 const Reviews = () => {
   const { movieId } = useParams('movieId');
@@ -11,7 +12,7 @@ const Reviews = () => {
   }, [movieId]);
 
   return (
-    <>
+    <div className={css.reviews_container}>
       {reviews.length > 0 ? (
         <ul>
           {reviews.map(({ id, author, content }) => (
@@ -24,7 +25,7 @@ const Reviews = () => {
       ) : (
         <p>We don`t have any reviews for this movie</p>
       )}
-    </>
+    </div>
   );
 };
 
