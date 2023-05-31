@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/707.7db2cf04.chunk.css","mappings":"AAAA,uBACE,iBAAkB,CAClB,QACF","sources":["components/Loader/Loader.module.css"],"sourcesContent":[".loading {\n  position: relative;\n  top: 10vh;\n}\n"],"names":[],"sourceRoot":""}
