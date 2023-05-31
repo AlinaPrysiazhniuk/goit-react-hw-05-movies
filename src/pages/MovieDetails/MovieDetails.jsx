@@ -11,7 +11,7 @@ const MovieDetails = () => {
   const navigate = useNavigate();
   const backLinkHref = location.state?.from ?? '/movie';
 
-  const { poster, title, releaseyear, userScore, overview, genres } =
+  const { poster, title, releaseYear, userScore, overview, genres } =
     movie ?? {};
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const MovieDetails = () => {
             <img src={poster} alt={title} className={css.movies_img} />
             <div className={css.movies_info}>
               <h3 className={css.movies_title}>
-                {title} ({releaseyear})
+                {title} ({releaseYear})
               </h3>
               <p>User Score: {userScore}%</p>
               <h3>Overview</h3>
@@ -50,7 +50,7 @@ const MovieDetails = () => {
               <Link
                 to={'cast'}
                 state={{ from: location?.state?.from }}
-                className={css.movies_link}
+                className={css.movies_links}
               >
                 Cast
               </Link>
@@ -59,7 +59,7 @@ const MovieDetails = () => {
               <Link
                 to={'reviews'}
                 state={{ from: location?.state?.from }}
-                className={css.movies_link}
+                className={css.movies_links}
               >
                 Reviews
               </Link>
