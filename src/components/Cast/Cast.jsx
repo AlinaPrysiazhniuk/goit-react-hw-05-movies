@@ -11,17 +11,23 @@ const Cast = () => {
   }, [movieId]);
 
   return (
-    <ul>
-      {credits.map(({ id, name, character, photo }) => {
-        return (
-          <li key={id}>
-            <img src={photo} alt={name} />
-            <p>{name}</p>
-            <p>Character: {character}</p>
-          </li>
-        );
-      })}
-    </ul>
+    <div>
+      {credits.length > 0 && (
+        <ul>
+          {credits.map(({ id, name, character, photo }) => {
+            return (
+              <li key={id}>
+                <img src={photo} alt={name} />
+                <div>
+                  <p>{name}</p>
+                  <p>Character: {character}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
   );
 };
 

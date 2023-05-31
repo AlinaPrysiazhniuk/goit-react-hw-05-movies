@@ -19,12 +19,12 @@ const Movies = () => {
 
     const response = await searchByName(name);
     setMovies(response);
-    setSearchparams({ query });
+    setSearchparams({ name });
     setName('');
   };
 
   const onChange = e => {
-    setQuery(e.target.value);
+    setName(e.target.value);
   };
 
   return (
@@ -38,3 +38,5 @@ const Movies = () => {
     </>
   );
 };
+
+export default Movies;

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cast from 'components/Cast/Cast';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.params = {
@@ -85,7 +86,7 @@ export const searchMovieReviews = movieId => {
   return axios
     .get(`/movie/${movieId}/reviews?`)
     .then(({ data: { results } }) =>
-      cast.map(({ id, author, content }) => ({
+      results.map(({ id, author, content }) => ({
         id,
         author,
         content,
