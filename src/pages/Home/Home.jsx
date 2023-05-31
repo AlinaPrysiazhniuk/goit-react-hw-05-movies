@@ -16,14 +16,14 @@ const Home = () => {
       <h1 className={css.home_title}>Tranding today</h1>
       {movies.length > 0 && (
         <ul className={css.movie_list}>
-          {movies.map(({ id, title }) => (
+          {movies.map(({ id, title, poster }) => (
             <li key={id} className={css.movie_item}>
               <Link
                 to={`/movies/${id}`}
                 state={{ from: location }}
                 className={css.movie_link}
               >
-                {/* <img src={poster} alt={title} className={css.movie_img} /> */}
+                <img src={poster} alt={title} className={css.movie_img} />
                 <h3 className={css.movie_title}>{title}</h3>
               </Link>
             </li>

@@ -34,6 +34,11 @@
   text-decoration: none;
   color: black;
   transition-duration: 300ms;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: rgb(0 0 0 / 8%) 0px 10px 25px;
+  }
 }
 
 .movie_link {
