@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Cast from 'components/Cast/Cast';
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 axios.defaults.params = {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, useLocation } from 'react-router-dom';
-import { searchByName } from 'components/SearchMovies/SearchMovies';
+import { useSearchParams, useLocation, Link } from 'react-router-dom';
+import { searchByName } from 'components/SearchMovies';
 
 const Movies = () => {
   const [name, setName] = useState('');
@@ -35,6 +35,18 @@ const Movies = () => {
           <button type="submit" search></button>
         </form>
       </div>
+      {movies.length > 0 && (
+        <ul>
+          {movies.map(({ id, title, poster }) => (
+            <li key={id}>
+              <Link to={`/movies/${id}`} state={{ from: location }}>
+                <img src={poster} alt={title} />
+                <h3>{title}</h3>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 };

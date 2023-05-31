@@ -1,4 +1,4 @@
-import { searchMovieReviews } from 'components/SearchMovies/SearchMovies';
+import { searchMovieReviews } from 'components/SearchMovies';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

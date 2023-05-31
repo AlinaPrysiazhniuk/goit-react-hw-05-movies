@@ -1,4 +1,4 @@
-import { searchMovieCredits } from 'components/SearchMovies/SearchMovies';
+import { searchMovieCredits } from 'components/SearchMovies';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 

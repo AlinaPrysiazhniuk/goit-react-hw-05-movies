@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { searchTranding } from 'components/SearchMovies/SearchMovies';
+import { searchTranding } from 'components/SearchMovies';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -15,10 +16,10 @@ const Home = () => {
       <ul>
         {movies.map(({ id, title, poster }) => (
           <li key={id}>
-            <a to={`/movies/${id}`} state={{ from: location }}>
+            <Link to={`/movies/${id}`} state={{ from: location }}>
               <img src={poster} alt={title} />
               <h3>{title}</h3>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
